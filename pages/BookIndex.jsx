@@ -22,6 +22,15 @@ export function BookIndex() {
         setSelectedBook(book)
     }
 
+    function onRemoveBook(ev, bookId) {
+        ev.stopPropagation()
+        bookService.remove(bookId)
+        .then(() => {
+            setBooks((prevBooks) => prevBooks.filter(book => book.id !== bookId))
+        })
+        .catch(err => console.log(err))
+    }
+
     if (!books) return <div>loading...</div>
 
     return (
@@ -30,6 +39,7 @@ export function BookIndex() {
                 !selectedBook && <BookList
                     books={books}
                     onSelectBook={onSelectBook}
+                    onRemoveBook={onRemoveBook}
                 />
             }
 
