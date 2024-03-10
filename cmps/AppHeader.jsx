@@ -1,11 +1,11 @@
 
 
-export function AppHeader() {
+export function AppHeader({ setPage }) {
 
-	// function onSetPage(ev, page) {
-	// 	ev.preventDefault()
-	// 	setPage(page)
-	// }
+	function onSetPage(ev, page) {
+		ev.preventDefault()
+		setPage(page)
+	}
 
 	return <header className="app-header full">
 		<h1 className='logo'>Book store</h1>
