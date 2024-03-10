@@ -40,10 +40,42 @@ export function BookIndex() {
     if (!books) return <div>loading...</div>
 
     return (
-        <section className='book-index'>
+        <React.Fragment>
+            <aside className='side-bar'>
+                <section>
+                <div className='categories'>
+                    <h3>categories</h3>
+                    <ul>
+                        <li>Computers</li>
+                        <li>Hack</li>
+                    </ul>
+                </div>
+                </section>
+                <section>
+                <div className='categories'>
+                    <h3>language</h3>
+                    <ul>
+                        <li>English</li>
+                        <li>Spanish</li>
+                        <li>Hebrew</li>
+                    </ul>
+                </div>
+                </section>
+            </aside>
+            <div className='search-bar-container'>
             <BookFilter
                 onSetFilter={onSetFilter}
                 filterBy={filterBy} />
+
+                <div className='sort-container'>
+                    <label htmlFor="sort-by">sort by</label>
+                    <select id='sort-by'>
+                        <option value="price">price</option>
+                        <option value="title">title</option>
+                        <option value="year">year</option>
+                    </select>
+                </div>                           
+            </div>
             {
                 !selectedBook && <BookList
                     books={books}
@@ -58,6 +90,6 @@ export function BookIndex() {
                     onGoBack={() => onSelectBook(null)}
                 />
             }
-        </section>
+        </React.Fragment>
     )
 }

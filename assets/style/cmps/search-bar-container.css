@@ -1,0 +1,22 @@
+.search-bar-container {
+    display: grid;
+    grid-auto-flow: column;
+    border-block: 1px solid var(--gray2);
+    padding-block: 1em;
+    /* background-color: var(--clr2); */
+}
+
+.search-bar-container input, .search-bar-container select {
+    height: 4em;
+    width: 16em;
+    color: var(--gray3);
+}
+
+.search-bar-container .sort-container {
+    place-self: center end;
+}
+
+.search-bar-container label {
+    margin-inline: 1em;
+    font-size: 1.5rem;
+}

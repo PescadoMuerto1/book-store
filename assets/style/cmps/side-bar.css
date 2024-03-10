@@ -1,0 +1,28 @@
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    padding: 1.5rem;
+    text-align: start;
+    color: var(--gray2);
+}
+
+.side-bar div {
+    padding-block: 1rem;
+}
+
+.side-bar h3 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    border-block-end: 1px solid var(--clr1bg);
+    color: var(--clr1bg);
+    margin-block-end: 0;
+}
+.side-bar ul{
+    padding: 0;
+}
+
+.side-bar li{
+    border-block-end: 0.5px solid var(--gray2);
+    padding-block: 1em;
+}

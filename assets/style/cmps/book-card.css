@@ -1,0 +1,16 @@
+.book-card {
+    display: grid;
+    place-items: center;
+    padding-block: 1em;
+    border-radius: 1em;
+    margin-block-end: 25px;
+    /* border: 0.5px solid var(--clr2); */
+}
+
+.book-card .book-preview {
+    width: 100%;
+}
+
+.book-card .book-preview img{
+    width: 100%;
+}

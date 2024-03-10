@@ -1,11 +1,42 @@
 .app-header {
-  background-color: var(--clr1);
+  /* background-color: var(--clr1); */
   color: var(--clr1bg);
-  padding: 1em;
+  margin-inline: 3em;
+  margin-block-end: 1em;
+  border-radius: 3em;
+  display: grid;
+  grid-auto-flow: column;
 }
 
-@media(max-width: 720px) {
-  .app-header {
-    color: var(--clr2bg);
-  }
+.logo {
+  color: inherit;
+  display: flex;
+  font-size: 3.5rem;
+  letter-spacing: 0.2em;
+  padding-inline: 0.3em;
+  font-family: "Fasthand";
+  margin-block-end: 0;
+}
+
+.app-header .app-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 15%;
+}
+
+.app-header .app-nav a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+
+  transition: box-shadow 0.6s;
+}
+
+.app-header .app-nav a:hover {
+  scale: 1.2;
+  transition: scale 0.5s;
 }

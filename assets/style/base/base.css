@@ -8,6 +8,7 @@ html {
 body {
   margin: 0;
   color: var(--gray3);
+  background-color: var(--white1);
 }
 
 h1,
@@ -17,7 +18,7 @@ h4,
 h5,
 h6 {
   margin: .5em 0 .5em;
-  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-family: 'Poppins', sans-serif;
 }
 
 p {
@@ -42,4 +43,9 @@ object {
 /* Simple and useful CSS Debugging Technique */
 .debug * {
   outline: 1px solid gold
+}
+
+li {
+  list-style-type: none;
+  cursor: pointer;
 }
