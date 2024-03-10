@@ -1,4 +1,6 @@
-
+export const booksDemoData = {
+  getBooks
+}
 
 const books = [
   {
@@ -442,3 +444,7 @@ const books = [
     }
   }
 ]
+
+function getBooks() {
+  return books
+}
