@@ -1,8 +1,9 @@
 .search-bar-container {
     display: grid;
     grid-auto-flow: column;
-    border-block: 1px solid var(--gray2);
+    border-block: 1px solid var(--clr1bg);
     padding-block: 1em;
+    color: var(--gray3);
     /* background-color: var(--clr2); */
 }
 
@@ -10,6 +11,12 @@
     height: 4em;
     width: 16em;
     color: var(--gray3);
+    outline: none;
+    border: 1px solid var(--clr1bg);
+}
+
+.search-bar-container input{
+    color: var(--white1);
 }
 
 .search-bar-container .sort-container {

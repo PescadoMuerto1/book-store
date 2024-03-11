@@ -9,7 +9,6 @@ import { BookSort } from '../cmps/BookSort.jsx'
 
 export function BookIndex() {
     const [books, setBooks] = useState(null)
-    const [selectedBook, setSelectedBook] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
     const [sortBy, setSortBy] = useState('title')
 
@@ -21,10 +20,6 @@ export function BookIndex() {
         bookService.query(filterBy)
             .then((books) => sortBooks(books, sortBy))
             .then((books) => setBooks(books))
-    }
-
-    function onSelectBook(book) {
-        setSelectedBook(book)
     }
 
     function onRemoveBook(ev, bookId) {
@@ -83,19 +78,12 @@ export function BookIndex() {
                 />
             </div>
             {
-                !selectedBook && <BookList
+                <BookList
                     books={books}
-                    onSelectBook={onSelectBook}
                     onRemoveBook={onRemoveBook}
                 />
             }
 
-            {
-                selectedBook && <BookDetails
-                    book={selectedBook}
-                    onGoBack={() => onSelectBook(null)}
-                />
-            }
         </React.Fragment>
     )
 }

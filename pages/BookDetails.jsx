@@ -1,13 +1,31 @@
-const { useEffect } = React
 
-export function BookDetails({ book, onGoBack }) {
+const { useState, useEffect } = React
+const { useParams, useNavigate } = ReactRouter
 
-    useEffect(() => {
-        return onGoBack
-    },[])
-	
+import { bookService } from "../services/book.service.js"
+
+export function BookDetails() {
+	const [book, setBook] = useState(null)
+	const params = useParams()
+	const navigate = useNavigate()
+
+    
+	useEffect(() => {
+		loadBook()
+	}, [])
+
+	function loadBook() {
+		bookService.get(params.bookId)
+			.then(book => {setBook(book); console.log(book);})
+			.catch(err => {
+				console.log('Had issues loading book', err)
+				navigate('/book')
+			})
+	}
+
+	if(!book) return <div>Loading details..</div>
 	return <section className="book-details">
-		<button onClick={onGoBack}>Go back</button>
+		{/* <button onClick={onGoBack}>Go back</button> */}
 		<h1>{book.title}</h1>
         <h2>{book.subtitle}</h2>
 		<img src={book.thumbnail} />

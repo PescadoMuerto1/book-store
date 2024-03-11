@@ -26,7 +26,7 @@ export function BookFilter({onSetFilter, filterBy}) {
             name="title"
             value={filterByToEdit.title}
             onChange={handleChange}
-            placeholder="By title" />
+            placeholder="Search" />
         <label htmlFor="title">🔎</label>
 
         {/* <label htmlFor="min-Price">min price</label>

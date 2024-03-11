@@ -1,9 +1,10 @@
 .book-card {
     display: grid;
-    place-items: center;
+    place-items: start center;
     padding-block: 1em;
     border-radius: 1em;
     margin-block-end: 25px;
+    color:  var(--gray2);
     /* border: 0.5px solid var(--clr2); */
 }
 
@@ -13,4 +14,11 @@
 
 .book-card .book-preview img{
     width: 100%;
+}
+
+.book-card h2 {
+    font-family: "Lora", serif;
+    font-size: 1.7rem;
+    text-transform:capitalize;
+    color:  var(--gray3);
 }
