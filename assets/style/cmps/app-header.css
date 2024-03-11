@@ -9,7 +9,6 @@
 }
 
 .logo {
-  color: inherit;
   display: flex;
   font-size: 3.5rem;
   letter-spacing: 0.2em;
@@ -27,7 +26,6 @@
 .app-header .app-nav a {
   display: flex;
   text-decoration: none;
-  color: inherit;
   width: max-content;
   align-items: center;
   justify-content: center;

@@ -22,3 +22,11 @@
     text-transform:capitalize;
     color:  var(--gray3);
 }
+
+.book-card:hover .price-and-rating{
+    display: block;
+}
+
+.book-card:hover .title-and-author{
+    display: none;
+}
