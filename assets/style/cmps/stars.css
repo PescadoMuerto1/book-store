@@ -1,0 +1,10 @@
+.stars {
+    display: flex;
+}
+.stars input {
+    display: none;
+}
+
+/* .stars label {
+    background: url();
+} */

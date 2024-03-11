@@ -12,7 +12,7 @@ export const bookService = {
     save,
     getEmptyBook,
     getNextBookId,
-    getDefaultFilter,
+    getDefaultFilter
 }
 
 function query(filterBy = getDefaultFilter()) {

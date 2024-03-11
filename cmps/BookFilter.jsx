@@ -20,7 +20,6 @@ export function BookFilter({onSetFilter, filterBy}) {
 
     return<section className="book-filter">    
 
-    
         <input type="text"
             id="title"
             name="title"
@@ -28,15 +27,6 @@ export function BookFilter({onSetFilter, filterBy}) {
             onChange={handleChange}
             placeholder="Search" />
         <label htmlFor="title">🔎</label>
-
-        {/* <label htmlFor="min-Price">min price</label>
-        <input type="number"
-            id="min-price"
-            name="minPrice"
-            value={filterByToEdit.minPrice}
-            onChange={handleChange}
-            placeholder="By min price" /> */}
-
     
 </section>
 }
