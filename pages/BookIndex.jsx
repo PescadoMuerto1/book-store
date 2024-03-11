@@ -5,6 +5,7 @@ import { BookFilter } from '../cmps/BookFilter.jsx'
 import { bookService } from '../services/book.service.js'
 import { BookDetails } from './BookDetails.jsx'
 import { BookSort } from '../cmps/BookSort.jsx'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
 export function BookIndex() {
@@ -27,8 +28,9 @@ export function BookIndex() {
         bookService.remove(bookId)
             .then(() => {
                 setBooks((prevBooks) => prevBooks.filter(book => book.id !== bookId))
+                showSuccessMsg(`Book removed successfully${bookId}`)
             })
-            .catch(err => console.log(err))
+            .catch(err => showSuccessMsg('Book removed successfully'))
     }
 
     function onSetFilter(fieldsToUpdate) {
