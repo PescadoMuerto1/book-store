@@ -3,7 +3,6 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-var gFilterBy = { txt: '', minSpeed: 0 }
 _createBooks()
 
 export const bookService = {
@@ -13,7 +12,7 @@ export const bookService = {
     save,
     getEmptyBook,
     getNextBookId,
-    getDefaultFilter
+    getDefaultFilter,
 }
 
 function query(filterBy = getDefaultFilter()) {
