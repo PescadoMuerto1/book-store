@@ -16,3 +16,5 @@
 @import 'cmps/search-bar-container.css';
 @import 'cmps/side-bar.css';
 @import 'cmps/stars.css';
+
+@import 'setup/mq.css';

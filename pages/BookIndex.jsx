@@ -10,7 +10,7 @@ import { CategoriesFilter } from '../cmps/CategoriesFilter.jsx'
 
 
 export function BookIndex() {
-    const [books, setBooks] = useState(null)
+    const [books, setBooks] = useState([])
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
     const [sortBy, setSortBy] = useState('title')
 
