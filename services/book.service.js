@@ -5,6 +5,7 @@ import { storageService } from './async-storage.service.js'
 const BOOK_KEY = 'bookDB'
 
 const gCategories = [{text: "Computers"},{text: "Hack"},{text: "Science fiction"},{text: "Mystery"},{text: "Horror"}]
+const gLanguages = [{text: "english"},{text: "spanish"},{text: "hebrew"}]
 _createBooks()
 
 export const bookService = {
@@ -15,7 +16,8 @@ export const bookService = {
     getEmptyBook,
     getNextBookId,
     getCategories,
-    getDefaultFilter
+    getDefaultFilter,
+    getLanguages
 }
 
 function query(filterBy = getDefaultFilter()) {
@@ -29,6 +31,10 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.categories) {
                 if(filterBy.categories.length){
                 books = books.filter(({categories}) => filterBy.categories.some((cg) =>categories.includes(cg)))
+            }}
+            if (filterBy.languages) {
+                if(filterBy.languages.length){
+                books = books.filter(({language}) => filterBy.languages.includes(language))
             }}
             return books
         })
@@ -70,6 +76,10 @@ function getDefaultFilter() {
 
 function getCategories() {
     return gCategories
+}
+
+function getLanguages() {
+    return gLanguages
 }
 
 // function setFilterBy(filterBy) {

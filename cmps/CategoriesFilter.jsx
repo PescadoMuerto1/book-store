@@ -5,25 +5,35 @@ const { useState, useEffect } = React
 export function CategoriesFilter({ onSetFilter, filterBy }) {
    const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
    const [categories, setCategories] = useState(bookService.getCategories())
+   const [languages, setLanguages] = useState(bookService.getLanguages())
 
    useEffect(() => {
       onSetFilter(filterByToEdit)
    }, [filterByToEdit])
 
-   function handleSelect(cg) {
-      cg.active = !cg.active ? true : false 
+   function handleSelect(cg, cgs, key) {
+      cg.active = !cg.active ? true : false
 
       console.log(cg.active);
-         
-         const currCgs = categories.reduce((arr, cg) => {
-            if (cg.active) {
-               arr.push(cg.text)
-               console.log(arr);
-            }
-            return arr
-         }, [])
-         setFilterByToEdit((prevFilter) =>({...prevFilter, categories:currCgs}) )
-      
+
+      const currCgs = cgs.reduce((arr, cg) => {
+         if (cg.active) {
+            if(key === 'languages') arr.push(cg.text.slice(0, 2))
+            else(arr.push(cg.text))
+         }
+         return arr
+      }, [])
+      setFilterByToEdit((prevFilter) => ({ ...prevFilter, [key]: currCgs }))
+
+   }
+
+   function onSelect(cg, type) {
+      if (type === 'cg') {
+         handleSelect(cg, categories, 'categories')
+      }
+      else if( type === 'len'){
+         handleSelect(cg, languages, 'languages')
+      }
    }
 
    return <aside className='side-bar'>
@@ -34,7 +44,7 @@ export function CategoriesFilter({ onSetFilter, filterBy }) {
                {categories.map(cg =>
                   <li
                      className={cg.active ? 'active' : ''}
-                     onClick={() => handleSelect(cg)}>
+                     onClick={() => onSelect(cg, 'cg')}>
                      {cg.text}
                   </li>
                )}
@@ -47,9 +57,13 @@ export function CategoriesFilter({ onSetFilter, filterBy }) {
          <div className='categories'>
             <h3>language</h3>
             <ul>
-               <li>English</li>
-               <li>Spanish</li>
-               <li>Hebrew</li>
+            {languages.map(cg =>
+                  <li
+                     className={cg.active ? 'active' : ''}
+                     onClick={() => onSelect(cg, 'len')}>
+                     {cg.text}
+                  </li>
+               )}
             </ul>
          </div>
       </section>
