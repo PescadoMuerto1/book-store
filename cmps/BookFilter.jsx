@@ -7,11 +7,6 @@ export function BookFilter({onSetFilter, filterBy}) {
 		onSetFilter(filterByToEdit)
 	}, [filterByToEdit])
 
-    function onFilter(ev) {
-		ev.preventDefault()
-		onSetFilter(filterByToEdit)
-	}
-
     function handleChange({ target }) {
 		let { value, name: field, type } = target
 		if (type === 'number') value = +value
@@ -21,12 +16,12 @@ export function BookFilter({onSetFilter, filterBy}) {
     return<section className="book-filter">    
 
         <input type="text"
-            id="title"
-            name="title"
-            value={filterByToEdit.title}
+            id="text"
+            name="text"
+            value={filterByToEdit.text}
             onChange={handleChange}
             placeholder="Search" />
-        <label htmlFor="title">🔎</label>
+        <label htmlFor="text">🔎</label>
     
 </section>
 }

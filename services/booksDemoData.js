@@ -14,8 +14,7 @@ const books = [
     "description": "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse",
     "pageCount": 713,
     "categories": [
-      "Computers",
-      "Hack"
+      'Science fiction'
     ],
     "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
     "language": "en",
@@ -36,8 +35,8 @@ const books = [
     "description": "aliquam pretium lorem laoreet etiam odio cubilia iaculis placerat aliquam tempor nisl auctor",
     "pageCount": 129,
     "categories": [
-      "Computers",
-      "Hack"
+      "Mystery",
+      "Horror"
     ],
     "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
     "language": "sp",
@@ -58,8 +57,8 @@ const books = [
     "description": "lorem molestie ut euismod ad quis mi ultricies nisl cursus suspendisse dui tempor sit suscipit metus etiam euismod tortor sagittis habitant",
     "pageCount": 972,
     "categories": [
-      "Computers",
-      "Hack"
+      "Historical fiction",
+      "Thriller"
     ],
     "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
     "language": "he",

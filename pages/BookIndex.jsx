@@ -6,6 +6,7 @@ import { bookService } from '../services/book.service.js'
 import { BookDetails } from './BookDetails.jsx'
 import { BookSort } from '../cmps/BookSort.jsx'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { CategoriesFilter } from '../cmps/CategoriesFilter.jsx'
 
 
 export function BookIndex() {
@@ -49,27 +50,12 @@ export function BookIndex() {
 
     return (
         <React.Fragment>
-            <aside className='side-bar'>
-                <section>
-                    <div className='categories'>
-                        <h3>categories</h3>
-                        <ul>
-                            <li>Computers</li>
-                            <li>Hack</li>
-                        </ul>
-                    </div>
-                </section>
-                <section>
-                    <div className='categories'>
-                        <h3>language</h3>
-                        <ul>
-                            <li>English</li>
-                            <li>Spanish</li>
-                            <li>Hebrew</li>
-                        </ul>
-                    </div>
-                </section>
-            </aside>
+            
+            <CategoriesFilter
+            onSetFilter={onSetFilter}
+            filterBy={filterBy} 
+            />
+            
             <div className='search-bar-container'>
                 <BookFilter
                     onSetFilter={onSetFilter}

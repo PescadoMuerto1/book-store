@@ -3,6 +3,8 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
+
+const gCategories = [{text: "Computers"},{text: "Hack"},{text: "Science fiction"},{text: "Mystery"},{text: "Horror"}]
 _createBooks()
 
 export const bookService = {
@@ -12,19 +14,22 @@ export const bookService = {
     save,
     getEmptyBook,
     getNextBookId,
+    getCategories,
     getDefaultFilter
 }
 
 function query(filterBy = getDefaultFilter()) {
+    console.log(filterBy);
     return storageService.query(BOOK_KEY)
         .then(books => {
-            if (filterBy.title) {
-                const regex = new RegExp(filterBy.title, 'i')
-                books = books.filter(book => regex.test(book.title))
+            if (filterBy.text) {
+                const regex = new RegExp(filterBy.text, 'i')
+                books = books.filter(book => regex.test(book.title) || regex.test(book.authors[0]))
             }
-            if (filterBy.minPrice) {
-                books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
-            }
+            if (filterBy.categories) {
+                if(filterBy.categories.length){
+                books = books.filter(({categories}) => filterBy.categories.some((cg) =>categories.includes(cg)))
+            }}
             return books
         })
 }
@@ -52,16 +57,24 @@ function getEmptyBook() {
         description: "",
         thumbnail: "",
         listPrice: {
-        amount: 0,
+            amount: 0,
             currencyCode: "",
-                isOnSale: false
+            isOnSale: false
+        }
     }
-}
 }
 
 function getDefaultFilter() {
-    return { title: '', minPrice: 50 }
+    return { text: '', minPrice: 50 }
 }
+
+function getCategories() {
+    return gCategories
+}
+
+// function setFilterBy(filterBy) {
+//     gFilterBy[filterBy]
+// }
 
 function getNextBookId(bookId) {
     return storageService.query(BOOK_KEY)
@@ -77,7 +90,7 @@ function _createBooks() {
     if (!books || !books.length) {
         books = booksDemoData.getBooks()
         console.log(books);
-            utilService.saveToStorage(BOOK_KEY, books)
+        utilService.saveToStorage(BOOK_KEY, books)
     }
 }
 
